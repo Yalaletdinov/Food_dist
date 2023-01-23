@@ -16,6 +16,6 @@ window.addEventListener('DOMContentLoaded', function() {
           forms('form', modalTimerId);
           modal('[data-modal]', '.modal', modalTimerId);
           slider();
-          timer('.timer', '2023-03-25');
+          timer('.timer', '2023-02-23');
 
 });
