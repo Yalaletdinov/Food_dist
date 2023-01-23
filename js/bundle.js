@@ -313,7 +313,7 @@ function closeModal(modalSelector) {
    }
    
    function openModal(modalSelector, modalTimerId) {
-    modal = document.querySelector(modalSelector);
+   const modal = document.querySelector(modalSelector);
     modal.classList.add('show');
     modal.classList.remove('hide');
     document.body.style.overflow = 'hidden';
@@ -354,7 +354,7 @@ document.addEventListener('keydown', (e) => {
 
 function showModalByScroll() {
  if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
-     openModal(modalSelector, modalTimderId);
+     openModal(modalSelector, modalTimerId);
      window.removeEventListener('scroll', showModalByScroll);
  }
 }
@@ -566,26 +566,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function timer(id, deadline) {
  // Timer
-
-
-
- function getTimeRemaining(endtime) {
-     const t = Date.parse(endtime) - Date.parse(new Date()),
-         days = Math.floor( (t/(1000*60*60*24)) ),
-         seconds = Math.floor( (t/1000) % 60 ),
-         minutes = Math.floor( (t/1000/60) % 60 ),
-         hours = Math.floor( (t/(1000*60*60) % 24) );
-
-     return {
-         'total': t,
-         'days': days,
-         'hours': hours,
-         'minutes': minutes,
-         'seconds': seconds
-     };
- }
+function timer(id, deadline) {
+    function getTimeRemaining(endtime) {
+        const t = Date.parse(endtime) - Date.parse(new Date()),
+            days = Math.floor( t/(1000*60*60*24) ),
+            hours = Math.floor( (t/(1000*60*60) % 24) ),
+            minutes = Math.floor( (t/1000/60) % 60 ),
+            seconds = Math.floor( (t/1000) % 60 );
+            
+        return {
+            'total': t,
+            'days': days,
+            'hours': hours,
+            'minutes': minutes,
+            'seconds': seconds
+        };
+    }
 
  function getZero(num){
      if (num >= 0 && num < 10) { 
@@ -620,9 +617,12 @@ function timer(id, deadline) {
      }
  }
 
+
  setClock(id, deadline);
 }
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (timer);
+
 
 /***/ }),
 
@@ -739,7 +739,7 @@ window.addEventListener('DOMContentLoaded', function() {
           (0,_modules_forms__WEBPACK_IMPORTED_MODULE_3__["default"])('form', modalTimerId);
           (0,_modules_modal__WEBPACK_IMPORTED_MODULE_4__["default"])('[data-modal]', '.modal', modalTimerId);
           (0,_modules_slider__WEBPACK_IMPORTED_MODULE_5__["default"])();
-          (0,_modules_timer__WEBPACK_IMPORTED_MODULE_6__["default"])('.timer', '2023-01-01');
+          (0,_modules_timer__WEBPACK_IMPORTED_MODULE_6__["default"])('.timer', '2023-02-23');
 
 });
 })();
